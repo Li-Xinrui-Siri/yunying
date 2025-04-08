@@ -1,0 +1,172 @@
+body {
+  font-family: '微软雅黑', sans-serif;
+  background-color: #f7f9fc;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background: #00589c;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #ffd700;
+}
+
+.section {
+  background: white;
+  margin: 30px auto;
+  max-width: 900px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+}
+
+/* 正文段落样式 */
+.section p {
+  font-family: "FangSong", serif;
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 10px 0;
+  text-align: justify;
+  /*首行缩进两字符*/
+  text-indent: 2em;
+}
+
+
+h1 {
+  font-size: 48px;
+  font-family: '楷体', '仿宋';
+}
+
+h2 {
+  color: #00589c;
+  margin-bottom: 10px;
+}
+
+.editor {
+  color: white;
+  font-size: 22px;
+  font-family: '楷体';
+}
+
+/* 轮播图样式 */
+.carousel {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-inner img {
+  width: 700px;
+  height: auto;
+  object-fit: cover;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 24px;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+/* 返回顶部按钮 */
+#backToTop {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  padding: 12px 16px;
+  background: #00589c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  display: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#backToTop:hover {
+  background: #003f6f;
+}
+
+/* 右侧导航栏样式 */
+.side-nav {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+}
+
+/* 导航链接样式 */
+.side-nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 12px;
+  font-size: 15px;
+  transition: background 0.2s ease;
+  border-radius: 6px;
+}
+
+/* 鼠标悬浮时 */
+.side-nav a:hover {
+  background-color: #eee;
+}
+
+/* 当前模块高亮 */
+.side-nav a.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
