@@ -65,3 +65,23 @@ document.addEventListener('click', function (e) {
     nav.classList.remove('open');
   }
 });
+
+// 添加到script.js文件
+// 防止横向滚动
+document.addEventListener('DOMContentLoaded', function () {
+  let touchStartX = 0;
+
+  document.body.addEventListener('touchstart', function (e) {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  document.body.addEventListener('touchmove', function (e) {
+    const touchX = e.touches[0].clientX;
+    const diffX = touchX - touchStartX;
+
+    // 如果横向滑动距离大于纵向滑动距离，则阻止默认行为
+    if (Math.abs(diffX) > 10) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+});

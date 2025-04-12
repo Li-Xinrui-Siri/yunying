@@ -293,6 +293,12 @@ img {
     padding-top: 50px;
   }
 
+  body {
+    min-width: 100vw;
+    touch-action: pan-y;
+    /* 限制只能垂直滚动 */
+  }
+
   .nav-menu {
     display: none;
   }
@@ -302,13 +308,21 @@ img {
   }
 
   .section {
-    margin: 15px 10px;
+    width: calc(100% - 20px);
+    /* 确保内容不超过屏幕宽度 */
+    margin: 15px auto;
     padding: 15px;
+    box-sizing: border-box;
   }
 
   .section p {
     font-size: 15px;
     line-height: 1.6;
+  }
+
+  img {
+    max-width: 100% !important;
+    height: auto;
   }
 
   #backToTop {
@@ -331,4 +345,19 @@ img {
   .section {
     padding: 12px;
   }
+}
+
+/* 添加到style.css文件的最顶部 */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
