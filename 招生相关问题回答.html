@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>招生相关问题的回答</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -11,7 +12,6 @@
 <body>
   <header>
     <h1>招生相关问题汇总</h1>
-    <!-- <h3 class="editor">李新睿</h3> -->
     <nav class="nav-menu" style="font-family: '仿宋';">
       <a href="#一校三区">一校三区</a>
       <a href="#威海校区">威海校区</a>
@@ -156,30 +156,22 @@
     </section>
   </main>
 
-  <button id="backToTop">↑</button>
+  <button id="backToTop" aria-label="返回顶部">↑</button>
 
-  <div>
-    <!-- 控制导航按钮（移动端可见） -->
-    <button class="nav-toggle" onclick="toggleNav()">📑 展开目录</button>
-
-    <!-- 右侧导航 -->
-    <div class="side-nav" id="sideNav">
-      <a href="#一校三区">一校三区</a>
-      <a href="#威海校区">威海校区</a>
-      <a href="#统招">统招</a>
-      <a href="#特殊类型招生">特殊类型</a>
-      <a href="#考生特殊情况">特殊情况</a>
-      <a href="#留学生">留学</a>
-      <a href="#开发者记录">勘误</a>
-    </div>
-
+  <!-- 移动端导航按钮和侧边导航 -->
+  <button class="nav-toggle" onclick="toggleNav()" aria-label="展开目录">📑 展开目录</button>
+  <div class="side-nav" id="sideNav">
+    <a href="#一校三区">一校三区</a>
+    <a href="#威海校区">威海校区</a>
+    <a href="#统招">统招</a>
+    <a href="#特殊类型招生">特殊类型</a>
+    <a href="#考生特殊情况">特殊情况</a>
+    <a href="#留学生">留学</a>
+    <a href="#开发者记录">勘误</a>
   </div>
 
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script src="js/script.js"></script>
-
 </body>
 
 </html>

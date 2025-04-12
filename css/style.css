@@ -277,101 +277,58 @@ img {
 }
 
 /* ========== 响应式样式：适配移动端 ========== */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 28px;
-  }
-
-  .nav-menu {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .section {
-    margin: 20px 10px;
-    padding: 20px;
-  }
-
-  .section p {
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-  .carousel-inner img,
-  .carousel-item img {
-    width: 100%;
-    min-width: unset;
+/* 响应式设计 */
+@media (min-width: 769px) {
+  .nav-toggle {
+    display: none;
   }
 
   .side-nav {
-    position: static;
-    display: block;
-    margin: 20px auto;
-    max-width: 90%;
-    box-shadow: none;
-    text-align: center;
-  }
-
-  .side-nav a {
-    display: inline-block;
-    margin: 5px;
-    font-size: 14px;
-  }
-
-  #backToTop {
-    right: 10px;
-    bottom: 20px;
-    padding: 10px 14px;
-    font-size: 16px;
+    display: none;
   }
 }
 
-/* 导航控制按钮默认隐藏，仅移动端显示 */
-.nav-toggle {
-  display: none;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 999;
-  padding: 10px 14px;
-  font-size: 16px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* 移动端导航滑出效果 */
 @media (max-width: 768px) {
+  header {
+    padding-top: 50px;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
   .nav-toggle {
     display: block;
   }
 
-  .side-nav {
-    position: fixed;
-    top: 0;
-    right: -220px;
-    /* 初始隐藏在右侧 */
-    width: 200px;
-    height: 100%;
-    background-color: #fff;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    z-index: 998;
-    transition: right 0.3s ease;
+  .section {
+    margin: 15px 10px;
+    padding: 15px;
   }
 
-  .side-nav.open {
-    right: 0;
+  .section p {
+    font-size: 15px;
+    line-height: 1.6;
   }
 
-  .side-nav a {
-    margin: 10px 0;
+  #backToTop {
+    bottom: 15px;
+    right: 15px;
+    padding: 8px;
     font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .section {
+    padding: 12px;
   }
 }
