@@ -97,3 +97,18 @@ function resetAutoSlide() {
 }
 
 startAutoSlide(); // 初始化自动播放
+
+
+function toggleNav() {
+  const nav = document.getElementById("sideNav");
+  nav.classList.toggle("open");
+}
+
+// 可选增强：点击任意导航项后收起菜单（仅移动端）
+document.querySelectorAll(".side-nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    if (window.innerWidth <= 768) {
+      document.getElementById("sideNav").classList.remove("open");
+    }
+  });
+});
