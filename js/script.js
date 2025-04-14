@@ -7,37 +7,30 @@ backToTop.onclick = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
+// 侧边导航功能
 const sideNav = document.getElementById("sideNav");
 const navLinks = document.querySelectorAll(".side-nav a");
+const sections = document.querySelectorAll(".section");
 
-// 页面滚动时显示/隐藏导航
 window.addEventListener("scroll", () => {
   sideNav.style.display = window.scrollY > 300 ? "flex" : "none";
   highlightCurrentSection();
 });
 
-// 获取所有 section 元素
-const sections = document.querySelectorAll(".section");
-
 function highlightCurrentSection() {
   let currentId = "";
-
   sections.forEach((section) => {
     const rect = section.getBoundingClientRect();
     if (rect.top <= 150 && rect.bottom >= 150) {
       currentId = section.id;
     }
   });
-
   navLinks.forEach((link) => {
-    if (link.getAttribute("href") === `#${currentId}`) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
-    }
+    link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
   });
-}
+};
 
+// 轮播图功能
 const carouselInner = document.querySelector(".carousel-inner");
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
@@ -48,10 +41,9 @@ let currentIndex = 0;
 let autoSlideInterval;
 
 function updateCarousel() {
-  const offset = -currentIndex * 700; // 每张图片宽度
+  const offset = -currentIndex * 700;
   carouselInner.style.transform = `translateX(${offset}px)`;
 
-  // 更新小圆点高亮
   document.querySelectorAll(".dot").forEach((dot, index) => {
     dot.classList.toggle("active", index === currentIndex);
   });
@@ -88,7 +80,7 @@ function startAutoSlide() {
   autoSlideInterval = setInterval(() => {
     currentIndex = (currentIndex + 1) % items.length;
     updateCarousel();
-  }, 4000); // 每4秒切换
+  }, 4000);
 }
 
 function resetAutoSlide() {
@@ -96,19 +88,49 @@ function resetAutoSlide() {
   startAutoSlide();
 }
 
-startAutoSlide(); // 初始化自动播放
+startAutoSlide();
 
+// 移动端侧边栏功能
+const navToggle = document.getElementById("navToggle");
+const overlay = document.createElement("div");
+overlay.className = "overlay";
+document.body.appendChild(overlay);
 
-function toggleNav() {
-  const nav = document.getElementById("sideNav");
-  nav.classList.toggle("open");
+// 创建关闭按钮
+const closeBtn = document.createElement("button");
+closeBtn.className = "close-btn";
+closeBtn.innerHTML = "×";
+closeBtn.setAttribute("aria-label", "关闭菜单");
+sideNav.prepend(closeBtn);
+
+// 切换侧边栏
+function toggleSideNav() {
+  sideNav.classList.toggle("open");
+  overlay.style.display = sideNav.classList.contains("open") ? "block" : "none";
+  document.body.style.overflow = sideNav.classList.contains("open") ? "hidden" : "";
 }
 
-// 可选增强：点击任意导航项后收起菜单（仅移动端）
-document.querySelectorAll(".side-nav a").forEach(link => {
+// 只在移动端添加事件监听
+if (window.innerWidth <= 768) {
+  navToggle.addEventListener("click", toggleSideNav);
+  closeBtn.addEventListener("click", toggleSideNav);
+  overlay.addEventListener("click", toggleSideNav);
+}
+
+// 点击导航链接处理
+navLinks.forEach(link => {
   link.addEventListener("click", () => {
     if (window.innerWidth <= 768) {
-      document.getElementById("sideNav").classList.remove("open");
+      toggleSideNav();
     }
   });
+});
+
+// 滚动和窗口大小变化处理
+window.addEventListener('scroll', highlightCurrentSection);
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    sideNav.style.right = '20px';
+    overlay.style.display = 'none';
+  }
 });
