@@ -55,8 +55,27 @@ header {
   text-align: justify;
   /*首行缩进两字符*/
   text-indent: 2em;
+
+  /* 新增的换行控制 */
+  word-break: break-all;
+  /* 允许在任何字符间断行 */
+  word-wrap: break-word;
+  /* 长单词或URL可以中断并换行 */
+  overflow-wrap: break-word;
+  /* 更现代的属性，效果同word-wrap */
 }
 
+/* 特别针对链接的优化 */
+.section p a {
+  word-break: break-all;
+  /* 允许链接中的字符在任何位置断开 */
+}
+
+.title-note {
+  font-family: '仿宋';
+  text-align: right;
+  font-size: x-small;
+}
 
 h1 {
   font-size: 48px;
@@ -127,6 +146,7 @@ h4 {
 .next {
   right: 0;
 }
+
 
 /* 返回顶部按钮 */
 #backToTop {
@@ -310,6 +330,12 @@ img {
     min-width: 100vw;
     touch-action: pan-y;
     /* 限制只能垂直滚动 */
+  }
+
+  .title-note {
+    font-family: '仿宋';
+    text-align: right;
+    font-size: x-small;
   }
 
   .nav-menu {
