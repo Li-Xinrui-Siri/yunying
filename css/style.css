@@ -340,9 +340,9 @@ img {
 }
 
 @media (max-width: 768px) {
-  header {
+  /* header {
     padding-top: 50px;
-  }
+  } */
 
   body {
     min-width: 100vw;
@@ -357,6 +357,8 @@ img {
   }
 
   .nav-menu {
+    /* 默认不显示 */
+    display: none;
     position: fixed;
     /* 固定定位 */
     top: 0;
@@ -369,7 +371,7 @@ img {
     /* 背景色 */
     z-index: 1000;
     /* 确保在最上层 */
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
     /* 适当内边距 */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     /* 添加投影效果 */

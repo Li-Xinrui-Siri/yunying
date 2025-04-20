@@ -33,24 +33,19 @@ function highlightCurrentSection() {
   });
 };
 
-// 轮播图功能
-const carouselInner = document.querySelector(".carousel-inner");
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
+//移动端的顶端目录
+const topNav = document.getElementById("topNav");
+
+window.addEventListener("scroll", () => {
+  if (window.innerWidth < 1024) {
+    topNav.style.display = window.scrollY > 200 ? "flex" : "none";
+    highlightCurrentSection();
+  }
+});
+
+
 const items = document.querySelectorAll(".carousel-item");
 const dotsContainer = document.querySelector(".dots-container");
-
-let currentIndex = 0;
-let autoSlideInterval;
-
-function updateCarousel() {
-  const offset = -currentIndex * 700;
-  carouselInner.style.transform = `translateX(${offset}px)`;
-
-  document.querySelectorAll(".dot").forEach((dot, index) => {
-    dot.classList.toggle("active", index === currentIndex);
-  });
-}
 
 // 初始化小圆点
 items.forEach((_, index) => {
