@@ -20,6 +20,7 @@ header {
   text-align: center;
 }
 
+
 /* 侧边栏样式 - 电脑端 */
 .side-nav {
   position: fixed;
@@ -356,7 +357,23 @@ img {
   }
 
   .nav-menu {
-    display: none;
+    position: fixed;
+    /* 固定定位 */
+    top: 0;
+    /* 贴顶 */
+    left: 0;
+    /* 左侧对齐 */
+    width: 100%;
+    /* 占满屏幕宽度 */
+    background: rgba(0, 88, 156, 0.8);
+    /* 背景色 */
+    z-index: 1000;
+    /* 确保在最上层 */
+    padding: 10px 20px;
+    /* 适当内边距 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* 添加投影效果 */
+    backdrop-filter: blur(5px);
   }
 
   .nav-toggle {

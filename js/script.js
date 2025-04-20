@@ -13,8 +13,10 @@ const navLinks = document.querySelectorAll(".side-nav a");
 const sections = document.querySelectorAll(".section");
 
 window.addEventListener("scroll", () => {
-  sideNav.style.display = window.scrollY > 200 ? "flex" : "none";
-  highlightCurrentSection();
+  if (window.innerWidth > 1024) {
+    sideNav.style.display = window.scrollY > 200 ? "flex" : "none";
+    highlightCurrentSection();
+  }
 });
 
 // 侧边栏的高亮
@@ -63,30 +65,3 @@ items.forEach((_, index) => {
   dotsContainer.appendChild(dot);
 });
 
-// 手动切换
-prevBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + items.length) % items.length;
-  updateCarousel();
-  resetAutoSlide();
-});
-
-nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % items.length;
-  updateCarousel();
-  resetAutoSlide();
-});
-
-// 自动播放功能
-function startAutoSlide() {
-  autoSlideInterval = setInterval(() => {
-    currentIndex = (currentIndex + 1) % items.length;
-    updateCarousel();
-  }, 4000);
-}
-
-function resetAutoSlide() {
-  clearInterval(autoSlideInterval);
-  startAutoSlide();
-}
-
-startAutoSlide();
