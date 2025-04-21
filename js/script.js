@@ -60,3 +60,48 @@ items.forEach((_, index) => {
   dotsContainer.appendChild(dot);
 });
 
+// 平滑滚动并修正顶部偏移
+navLinks.forEach(link => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault(); // 阻止默认跳转
+    const targetId = this.getAttribute("href").substring(1); // 去掉#
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      const headerOffset = 80; // 根据实际 header 高度设置
+      const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  });
+});
+
+const topNavLinks = document.querySelectorAll("#topNav a");
+
+topNavLinks.forEach(link => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute("href").substring(1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      const headerOffset = 80;
+      const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  });
+});
+
+// 自动为所有 <a> 标签添加 target="_blank"
+document.querySelectorAll('a').forEach(link => {
+  link.setAttribute('target', '_blank');
+});
