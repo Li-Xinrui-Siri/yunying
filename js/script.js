@@ -105,15 +105,3 @@ topNavLinks.forEach(link => {
 document.querySelectorAll('a').forEach(link => {
   link.setAttribute('target', '_blank');
 });
-
-// 如果页面不需要滚动到顶部，避免自动滚动
-window.addEventListener('load', () => {
-  if (window.location.hash) {
-    // 页面中有哈希值（锚点链接），不再滚动
-    return;
-  }
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-});
