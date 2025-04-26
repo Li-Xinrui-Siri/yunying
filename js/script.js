@@ -1,3 +1,8 @@
+// 自动为所有 <a> 标签添加 target="_blank"
+document.querySelectorAll('a').forEach(link => {
+  link.setAttribute('target', '_blank');
+});
+
 // 返回顶部按钮
 const backToTop = document.getElementById("backToTop");
 window.onscroll = () => {
@@ -101,7 +106,3 @@ topNavLinks.forEach(link => {
   });
 });
 
-// 自动为所有 <a> 标签添加 target="_blank"
-document.querySelectorAll('a').forEach(link => {
-  link.setAttribute('target', '_blank');
-});
