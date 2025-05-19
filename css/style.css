@@ -684,3 +684,38 @@ i:hover {
   margin-right: 2px;
   /* 可选：如果图标后面还有文字 */
 }
+
+/* ===== 基础列表样式（section 中） ===== */
+section ul,
+section ol {
+  margin-left: 2em;
+  padding-left: 0em;
+  list-style: none;
+}
+
+/* ===== 列表项基本样式 ===== */
+section li {
+  font-family: "FangSong", serif;
+  line-height: 1.8;
+  margin: 6px 0;
+  padding: 6px 12px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  color: #333;
+  font-size: 1rem;
+  transition: background-color 0.25s ease, border-left-color 0.25s ease;
+}
+
+/* ===== 多级列表样式简化处理 ===== */
+section li ul,
+section li ol {
+  margin-left: 1.25em;
+  padding-left: 0.75em;
+  list-style: disc;
+}
+
+/* 子级列表项样式稍微弱化，层次感 */
+section li li {
+  font-size: 0.95em;
+  background-color: #fcfcfc;
+}
