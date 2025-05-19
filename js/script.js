@@ -5,6 +5,9 @@ document.querySelectorAll('a').forEach(link => {
 document.querySelectorAll('li a').forEach(link => {
   link.setAttribute('target', '_self');
 });
+document.querySelectorAll('nav a').forEach(link => {
+  link.setAttribute('target', '_self');
+});
 
 // 返回顶部按钮
 const backToTop = document.getElementById("backToTop");
